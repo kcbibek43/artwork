@@ -1,0 +1,33 @@
+.form-control{
+    width: 50vw;
+}
+
+.searchbar{
+    width: 100%;
+    justify-content: center;
+}
+.navbar-brand{
+    width: 100px;
+}
+
+p{
+    align-self: center;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+option :hover{
+    font-size: 100px;
+    background-color: white;
+    color: rgb(25,135,84);
+}
+
+@media screen and (max-width: 950px) {
+    .oncanvas{
+        display: none;
+    }
+
+    .offcanvas-end{
+        width: 50vw;
+    }
+  }

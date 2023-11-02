@@ -1,0 +1,45 @@
+<div class="container my-3">
+    <h2>
+        {{data.title}}
+    </h2>
+    <h6>By : <span><strong>{{data.artist_display}}</strong></span></h6>
+    <div class="img my-3 d-flex">
+        <div class="me-3 img" >
+            <img src="https:\\www.artic.edu\iiif\2\{{data.image_id}}\full\843,\0\default.jpg" alt="">
+        </div>   
+        <div class="details ms-3">
+            <h4> {{data.title}}</h4>
+            <p class="list" *ngIf = "data.artist_display"><span class="span">Artist</span> : <span>{{data.artist_display || "No artist Available"}}</span></p>
+            <p class="list" *ngIf = "data.place_of_origin"><span class="span">Place of Origin</span> : <span>{{data.place_of_origin || "No data Available"}}</span></p>
+            <p class="list" *ngIf = "data.artist_title"><span class="span">Artists Involved</span> : <span>{{data.artist_title || "No other artist Available"}}</span></p>
+            <p class="list" *ngIf = "data.category_titles.length"><span class="span">Categories</span> : <span *ngFor = "let item of data.category_titles">{{item}}</span></p>
+            <p class="list" *ngIf = "data.subject_titles.length"><span class="span">Subjects</span> : <span *ngFor = "let item of data.subject_titles">{{item}},</span></p>
+            <p class="list" *ngIf = "data.classification_titles.length"><span class="span">Classification</span> : <span *ngFor = "let item of data.classification_titles">{{item}},</span></p>
+            <p class="list" *ngIf = "data.material_titles.length"><span class="span">Materials Used</span> : <span *ngFor = "let item of data.material_titles">{{item}},</span> </p>
+            <p class="list" *ngIf = "data.department_title"><span class="span">Department</span> : <span>{{data.department_title}}</span></p> 
+          </div>
+    </div>
+    <div class="my-3">
+         <h4>
+        Description
+    </h4>
+        <p class="my-3 para" id="desc">
+        </p>   
+    </div>
+    <div class="my-3">
+    <h4>
+            Exhibition History
+        </h4>
+            <p class="my-3 para" id="exhi">
+            </p> 
+    </div>
+
+    <div class="my-3">
+                 <h4>
+                Publication history
+            </h4>
+                <p class="my-3 para" id="Pub">
+                </p>   
+    </div>
+     
+</div>

@@ -1,0 +1,51 @@
+<section *ngIf="!wishlist">
+  <div class="container">
+    <div class="text">
+      <h1>Opps..!</h1>
+      <p>You have not added anything on favourite</p>
+      <div class="input-box">
+        <input type="text" placeholder="Search..." />
+        <button><i class="fa-solid fa-search"></i></button>
+      </div>
+      <ul class="menu">
+        <li><a routerLink="">Go to Homepage</a></li>
+      </ul>
+    </div>
+    <div>
+      <img class="image" src="../../assets/image/empty.png" alt="" /></div>
+  </div>
+</section>
+
+<div class="mx-4" *ngIf="wishlist">
+  <div class="wishlist">
+    <div class="title my-3">
+      <h1>My wishlist</h1>
+    </div>
+    <ul class="list-group list-group-flush mx-4">
+      <li class="card mb-3" *ngFor="let item of wishListedData">
+        <div class="titlerow my-3">
+          <div class="mx-3 img-div">
+              <img
+              src="https:\\www.artic.edu\iiif\2\{{
+                item.image_id
+              }}\full\843,\0\default.jpg"
+              alt=""
+            />     
+          </div>
+          <div class="maintitle">
+            <h4>
+              {{ item.title }}
+            </h4>
+            <p>
+              {{ item.artist_display }}
+            </p>
+          </div>
+          <div class="action">
+            <a [routerLink]="['/view', item.id]" ><button class="btn btn-outline-success p-2">View</button></a>
+            <a (click) = "removeFromFavourite(item)"><button class="btn btn-outline-success p-2">Remove</button></a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

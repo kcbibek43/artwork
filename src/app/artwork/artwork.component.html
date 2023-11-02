@@ -1,0 +1,74 @@
+<div *ngIf="!isLoading">
+  <div class="wrapper center">
+      <div class="inner"><mat-progress-spinner value-="50"  mode="indeterminate"></mat-progress-spinner> </div>
+    </div>
+</div>
+<div class="container-fluid" *ngIf="isLoading">
+    <div class="row">
+        <div class="cols col-3 ">
+          <form class="mt-3 searchbar" role="search">
+            <input
+              class="form-control m-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              (input) = "updateTextSearch($event)"
+            />
+            <div class="d-flex box">
+            <div class="custom-select">
+              <select class="btn btn-outline-success" (change) = "selectUpdate($event)">
+                <option class="dropdown-item" value="0">Search by</option>
+                <option class="dropdown-item" value="1">Artist</option>
+                <option class="dropdown-item" value="2">Title</option>
+              </select>
+            </div>                
+            </div>
+          </form>
+          <ul class="list-group m-2">
+            <a [routerLink] = "['/view',item.id]" *ngFor = "let item of searchedData" >
+            <li class="list-group-item d-flex justify-content-between align-items-start m-2">
+              <img src = "https:\\www.artic.edu\iiif\2\{{item.image_id}}\full\843,\0\default.jpg" alt="">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">{{item.title}}</div>
+               {{item.artist_title}}
+              </div>
+            </li>
+          </a>
+          </ul>
+        </div>
+        <div class="col-9">
+          <div class="titleexe"><h4 class="my-4 mx-2"><span><strong>Recently On Exhibition !!</strong></span></h4></div>
+          <div class="row">
+              <div class="card my-2
+              me-2" *ngFor = "let item of dataInfo">
+                <a>
+            <div class="card-img">
+                  <img
+                    src= "https:\\www.artic.edu\iiif\2\{{item.image_id}}\full\843,\0\default.jpg" 
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <a class="svg" (click) = "wishlisted(item)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="rgb(255, 36, 0)" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                  </svg>
+                </a>
+                </div>
+                <div class="card-body">
+                  <div class="title">
+                    <h5 class="card-title">{{item.title}}</h5>
+                  </div>
+                  <div class="artist">
+                    <p class="card-text" id="artist">
+                    {{item.artist_display}}
+                  </p>
+                  </div>
+
+                  <a class="btn btn-outline-success my-2"  [routerLink]="['/view', item.id]">View Details</a>
+                </div>
+                </a>
+    
+              </div>
+          </div>
+        </div>
+</div>
